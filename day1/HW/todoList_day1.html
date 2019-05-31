@@ -26,22 +26,25 @@
       <fieldset>
         <legend>To-do list</legend>
         Add Task:
-        <input type="text" />
         <!-- Bind input value with newTaskContent by v-model  -->
-        <button>add</button>
+        <input type="text" />
+
         <!-- Bind click event with addTask() by v-bind  -->
+        <button>add</button>
         <ul>
+          <!-- List todo in todos by v-for  -->
           <li class="task">
-            <!-- List todo in todos by v-for  -->
-            <input type="checkbox" />
             <!-- Change isFinished of todo state when checkbox is checked or not by v-model  -->
+            <input type="checkbox" />
+
+            <!-- Bind className:finished with todo.isFinished is true or false by v-bind  -->
             <span class="task-text">
-              <!-- Bind className:finished with todo.isFinished is true or false by v-bind  -->
               <!-- Write todo content by mustache  -->
               --
             </span>
-            <a href="#">(delete)</a>
+
             <!-- Bind click event with removeTask() by v-bind  -->
+            <a href="#">(delete)</a>
           </li>
         </ul>
       </fieldset>
@@ -71,9 +74,6 @@
           },
           removeTask(todo) {
             this.todos.splice(this.todos.indexOf(todo), 1)
-          },
-          addClass(todo) {
-            todo.isFinished = !todo.isFinished
           }
         }
       })
