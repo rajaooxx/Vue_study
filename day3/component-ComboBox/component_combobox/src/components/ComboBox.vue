@@ -1,7 +1,15 @@
 <template>
-   <div>
-      <span>Hello world</span>
-   </div>
+<div>
+    <!-- <select>
+      <option v-for="(item,index) in item-source" 
+              :key="item" 
+              :value="index" 
+              :selected="index==value">
+              <span>{{item}}</span>
+      </option>
+    </select> -->
+  <span>Hello world</span>
+</div>
 </template>
 
 
@@ -9,7 +17,7 @@
 
 export default {
   name: "ComboBox",
-  props : [],
+  props : ["item-source"],
   methods : {
 
   }
