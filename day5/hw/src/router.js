@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'root',
-      redirect: '/vuetify'
+      redirect: '/css'
     },
     {
       path: '/css',
