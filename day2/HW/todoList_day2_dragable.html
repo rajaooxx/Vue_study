@@ -34,8 +34,8 @@
           Loading state:&nbsp
           <span style="color:blue;">{{ isLoading }}</span>
         </p>
-        <draggable v-model="todos">
-          <div class="task" v-for="(todo,index) in todos" :key="index">
+        <draggable>
+          <div class="task" v-for="(todo,index) in filter" :key="index">
             <input type="checkbox" v-model="todo.isFinished" />
             <span
               class="task-text"
@@ -58,8 +58,15 @@
           todos: [],
           isLoading: true
         },
-        computed: {},
+        computed: {
+          filter () {
+            return this.todos.filter((item) => {
+              return item.isSealed !== true
+            })
+          }
+        },
         mounted() {
+          console.log()
           this.getTodosData()
         },
         methods: {
@@ -112,10 +119,11 @@
             })
           },
           addClickEvent2Todos() {
-            this.todos.forEach((todo, index) => {
+            this.filter.forEach((todo, index) => {
               let el = document.getElementById(`todo${index}`)
               el.addEventListener("click", () => {
-                window.alert(todo.content)
+                // window.alert(todo.content)
+                window.alert(this.filter[index].content)
               })
             })
           },
@@ -141,3 +149,4 @@
     </script>
   </body>
 </html>
+
